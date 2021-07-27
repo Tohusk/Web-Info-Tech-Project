@@ -1,0 +1,29 @@
+{{> header context='vendor' order=''}}
+
+{{!-- if fulfilled show time since fulfillment --}}
+{{!-- if outstanding show time since order --}}
+{{!-- if completed show time since picked up --}}
+<main>
+    {{> vendorOrderOverview pickedUp='true' }}
+</main>
+<script>
+    function startTime() {
+        var pickedUpTime = new Date(document.getElementById('pickedUpTime').value)
+        var now = new Date();
+        var diff = now - pickedUpTime;
+        var minutes = Math.floor(diff / 6e4);
+        var seconds = Math.floor((diff % 6e4) / 1000);
+        minutes = checkTime(minutes);
+        seconds = checkTime(seconds);
+        document.getElementById('time').innerHTML =
+            "Time since picked up: " + minutes + ":" + seconds;
+        var t = setTimeout(startTime, 1000);
+    }
+    function checkTime(i) {
+        if (i < 10) { i = "0" + i };  // add zero in front of numbers < 10
+        return i;
+    }
+
+    startTime();
+
+</script>

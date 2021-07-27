@@ -1,0 +1,220 @@
+:root {  
+    /* Color Scheme  */
+   --granny-smith-apple: #AAFCB8;
+   --aero-blue: #d7fff1;
+   --darker-apple: #8cd790;
+   --green-sheen: #77af9c;
+   --castleton-green: #285943;
+
+   --login-font: 'Roboto', sans-serif;
+   --login-title-font-size: 32px;
+   --login-details-font-size: 22px;
+   --login-button-font-size: 28px;
+
+   --login-title-font-size-computer: 40px;
+   --login-details-font-size-computer: 30px;
+   --login-button-font-size-computer: 36px;
+} 
+
+/* Login */
+#loginTitle {
+    color: var(--castleton-green);
+    text-align: center;
+    font-family: var(--login-font);
+    font-size: var(--login-title-font-size);
+}
+
+.signInContainer form {
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+    margin: auto;
+}
+
+.signInContainer input {
+    border: none;
+    padding: 12px 15px;
+    margin: 8px 0;
+    font-family: var(--login-font);
+}
+
+.loginButton {
+    font-family: var(--login-font);
+    font-size: var(--login-button-font-size);
+    background-color: var(--darker-apple);
+    padding: 12px 45px;
+    color: var(--castleton-green);
+    text-decoration: none;
+    border: solid;
+    border-width: 2px;
+    border-color: var(--castleton-green);
+    border-radius: 15px;
+} 
+
+.loginButton:hover {
+    background-color: var(--granny-smith-apple);
+}
+
+/*Account Details*/
+.accountHeader {
+    margin-bottom: 20px;
+    font-size: var(--login-title-font-size);
+    font-weight: bold;
+    color: var(--castleton-green);
+}
+
+.accountContainer {
+    width: 80%;
+    margin:auto;
+    padding: 20px;
+    padding-top:40px;
+    font-family: var(--login-font);
+}
+
+.settingsSection {
+    width:100%;
+    border-top: 2px solid;
+    padding-top: 10px;
+    margin-bottom: 20px;
+    color: var(--castleton-green);
+}
+
+.settingsSection form {
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+    margin: auto;
+}
+
+.settingsSection input {
+    border: none;
+    padding: 12px 15px;
+    margin: 8px 0;
+    font-family: var(--login-font);
+}
+
+.settingsHeader {
+    color: var(--castleton-green);
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: var(--login-details-font-size);
+}
+
+.accountDetail {
+    margin-bottom: 8px;
+}
+
+.accountDetailLine {
+    color: var(--castleton-green);
+    text-align: justify;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 16px;
+    font-size: var(--login-details-font-size);
+}
+
+
+.userDetail {
+    color: var(--castleton-green);
+    font-style: normal;
+    padding-bottom: 8px;
+    float: right;
+    text-transform: capitalize;
+    position: relative;
+}
+
+#accountPassword {
+    font-size: var(--login-details-font-size);
+    margin-left: 8px;
+    margin-top: 16px;
+}
+
+#changePwdBtn {
+    text-align: center;
+}
+
+/*Change Password*/
+#passwordHeader {
+    color: var(--castleton-green);
+    text-align: center;
+}
+
+.passwordContainer form {
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+    margin: auto;
+}
+
+.passwordContainer input {
+    border: none;
+    padding: 12px 15px;
+    margin: 8px 0;
+}
+
+.confirmButton {
+    font-size: var(--login-button-font-size);
+    background-color: var(--darker-apple);
+    padding: 12px 45px;
+    color: var(--castleton-green);
+    text-decoration: none;
+    border: none;
+    border-radius: 15px;
+}
+
+.confirmButton:hover {
+    background-color: var(--granny-smith-apple);
+}
+
+/*Password validation*/
+/* The message box is shown when the user clicks on the password field */
+#message {
+    display:none;
+    background: rgba(55, 123, 166, 0.6); /* Green background with 30% opacity */
+    color: #000;
+    position: relative;
+    padding: 20px;
+    margin-top: 10px;
+    border-color: white;
+    border-radius: 15px;
+    }
+    
+#message p {
+    padding: 0px 35px;
+    font-size: 18px;
+}
+    
+/* Add a green text color and a checkmark when the requirements are right */
+.valid {
+    color: green;
+}
+    
+/* Add a red text color and an "x" icon when the requirements are wrong */
+.invalid {
+    color: red;
+}
+
+
+@media screen and (min-width: 1280px) {
+    /* Login */
+    #loginTitle {
+        color: var(--castleton-green);
+        text-align: center;
+        font-family: var(--login-font);
+        font-size: var(--login-title-font-size);
+    }
+
+    /*Account Details*/
+    .accountHeader {
+        font-size: var(--login-title-font-size-computer);
+    }
+    .settingsHeader {
+        font-size: var(--login-details-font-size-computer);
+    }
+
+
+    .accountDetailLine {
+        font-size: var(--login-details-font-size-computer);
+    }
+}

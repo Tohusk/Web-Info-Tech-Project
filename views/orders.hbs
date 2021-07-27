@@ -1,0 +1,102 @@
+{{> header context='customer' }}
+
+<h2>Fulfilled Orders (Ready for pickup)</h2>
+<button type="button" class="collapsible active"> </button>
+<div class="content" style="max-height:100%;">
+    {{#each fulfilledOrders}}
+    <div class="orderBlock">
+        <div class="orderBlockInfo">
+            <span class="orderBlockText">
+                <div class="customerFulfilledOrderTime"> {{this.orderTime}} </div>
+                <a class="material-icons" href="/customer/orders/{{this._id}}">arrow_forward_ios</a>
+                <div> Van: {{this.van.name}} </div>
+                <div> Location: {{this.van.currentLocation}} </div>
+                <div> Status: {{this.status}} </div>
+            </span>
+        </div>
+    </div>
+    {{/each}}
+</div>
+
+<h2>Outstanding Orders</h2>
+<button type="button" class="collapsible active"> </button>
+<div class="content" style="max-height:100%;">
+    {{#each outstandingOrders}}
+    <div class="orderBlock">
+        <div class="orderBlockInfo">
+            <span class="orderBlockText">
+                <div class="customerOutstandingOrderTime"> {{this.orderTime}} </div>
+                <a class="material-icons" href="/customer/orders/{{this._id}}">arrow_forward_ios</a>
+                <div> Van: {{this.van.name}} </div>
+                <div> Location: {{this.van.currentLocation}} </div>
+                <div> Status: {{this.status}} </div>
+            </span>
+        </div>
+    </div>
+    {{/each}}
+</div>
+
+<h2>Completed Orders</h2>
+<button type="button" class="collapsible"> </button>
+<div class="content">
+    {{#each completedOrders}}
+    <div class="orderBlock">
+        <div class="orderBlockInfo">
+            <span class="orderBlockText">
+                <div class="customerCompletedOrderTime"> {{this.orderTime}} </div>
+                <a class="material-icons" href="/customer/orders/{{this._id}}">arrow_forward_ios</a>
+                <div> Van: {{this.van.name}} </div>
+                <div> Location: {{this.van.currentLocation}} </div>
+                <div> Status: {{this.status}} </div>
+            </span>
+        </div>
+    </div>
+    {{/each}}
+</div>
+
+<input type="hidden" name="error" id="error" value="{{error}}" />
+<script>
+    //alert message if there is one
+    if (document.getElementById('error').value.length !== 0) {
+        alert(document.getElementById('error').value);
+    }
+
+    var customerFulfilledOrderTimes = document.getElementsByClassName('customerFulfilledOrderTime');
+    var i;
+    for (i=0; i<customerFulfilledOrderTimes.length; i++) {
+        orderTime = new Date(customerFulfilledOrderTimes[i].innerHTML);
+        customerFulfilledOrderTimes[i].innerHTML = "Order on: " + orderTime.toISOString().slice(0, 19).replace(/-/g, "/").replace("T", " ");
+    }
+
+    var customerOutstandingOrderTimes = document.getElementsByClassName('customerOutstandingOrderTime');
+    var i;
+    for (i=0; i<customerOutstandingOrderTimes.length; i++) {
+        orderTime = new Date(customerOutstandingOrderTimes[i].innerHTML);
+        customerOutstandingOrderTimes[i].innerHTML = "Order on: " + orderTime.toISOString().slice(0, 19).replace(/-/g, "/").replace("T", " ");
+    }
+
+    
+    var customerCompletedOrderTimes = document.getElementsByClassName('customerCompletedOrderTime');
+    var i;
+    for (i=0; i<customerCompletedOrderTimes.length; i++) {
+        orderTime = new Date(customerCompletedOrderTimes[i].innerHTML);
+        customerCompletedOrderTimes[i].innerHTML = "Order on: " + orderTime.toISOString().slice(0, 19).replace(/-/g, "/").replace("T", " ");
+    }
+
+    var coll = document.getElementsByClassName("collapsible");
+    var i;
+
+    for (i = 0; i < coll.length; i++) {
+        coll[i].addEventListener("click", function () {
+            this.classList.toggle("active");
+            var content = this.nextElementSibling;
+            if (content.style.maxHeight) {
+                content.style.maxHeight = null;
+            } else {
+                content.style.maxHeight = content.scrollHeight + "px";
+            }
+        });
+    }
+
+
+</script>

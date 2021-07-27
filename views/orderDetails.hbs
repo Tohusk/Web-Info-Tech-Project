@@ -1,0 +1,85 @@
+{{> header context='customer' }}
+
+<div style="text-align: center;">
+    <div class="orderBlock">
+        <table class="ordersTable">
+            <tr>
+                <th id='orderID'>ID: {{order._id}}</th>
+                <th id='time'> </th>
+            </tr>
+        </table>
+        <table class="ordersTable">
+            <tr>
+                <th>Quantity</th>
+                <th>Name</th>
+                <th>Price</th>
+            </tr>
+            {{#each items}}
+            <tr>
+                <td class="quantity"> {{this.quantity}} </td>
+                <td class="name"> {{@key}} </td>
+                <td class="price">{{this.quantity}} &#215; ${{this.price}}</td>
+            </tr>
+            {{/each}}
+            <tr>
+                <td> </td>
+                <td>
+                    <h4> Total</h4>
+                </td>
+                <td>
+                    <h4>${{order.totalPrice}} </h4>
+                </td>
+            </tr>
+        </table>
+        <h3>Van Name: {{order.van.name}}</h3>
+        <h3>Van Location: {{order.van.currentLocation}} ({{order.van.latitude}},{{order.van.longitude}})</h3>
+        {{#if order.discount}}
+        <h3>Discount Status: Discount Offered</h3>
+        {{else}}
+        <h3>Discount Status: No Discount</h3>
+        {{/if}}
+        <h3> Order Status: {{order.status}}</h3>
+    </div>
+    <div id="changeButtons"></div>
+   
+</div>
+<input type="hidden" name="timeOrdered" id="timeOrdered" value="{{order.orderTime}}" />
+<input type="hidden" name="orderStatus" id="orderStatus" value="{{order.status}}"/>
+<input type="hidden" name="error" id="error" value="{{error}}" />
+
+
+<script>
+    //alert message if there is one
+	if (document.getElementById('error').value.length !== 0) {
+		alert(document.getElementById('error').value);
+	}
+    
+    function startTime() {
+        var orderStatus = document.getElementById('orderStatus').value;
+        var orderID = document.getElementById('orderID').innerHTML.slice(4);
+        var orderTime = new Date(document.getElementById('timeOrdered').value)
+        var now = new Date();
+        var diff = now - orderTime;
+        var minutes = Math.floor(diff / 6e4);
+        var seconds = Math.floor((diff % 6e4) / 1000);
+        minutes = checkTime(minutes);
+        seconds = checkTime(seconds);
+        if (orderStatus === "Outstanding") {
+            document.getElementById('time').innerHTML =
+            "Time: " + minutes + ":" + seconds;
+            var buttons = ((minutes < 10) ? '<a class="changeButton" href="/customer/orders/' + orderID + '/change">Change Order</a>' 
+            + ' </br></br></br> ' 
+            + ' <a class="cancelButton" href="/customer/orders/' + orderID + '/cancel">Cancel Order</a>' : "");
+            document.getElementById("changeButtons").innerHTML = buttons;
+            var t = setTimeout(startTime, 1000);
+        }
+        
+    }
+    function checkTime(i) {
+        if (i < 10) { i = "0" + i };  // add zero in front of numbers < 10
+        return i;
+    }
+
+    startTime();
+
+</script>

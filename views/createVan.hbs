@@ -1,0 +1,14 @@
+{{> header context='vendor' }}
+<main>
+	<h1 id="loginTitle">Van Creation</h1>
+	<div class="signInContainer">
+		<form method="post" action="/vendor/createVan">
+			<input placeholder="van name" name='name' id='name' value="" />
+            <input placeholder="image link" name='image' id='image' value="" />
+            <input placeholder="password" type="password" name='password' id='password' value="" />
+			<input class="loginButton" type="submit" value="Signup">
+		{{!-- Van login here in the future --}}
+		</form>
+	</div>
+
+</main>

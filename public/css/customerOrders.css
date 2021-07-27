@@ -1,0 +1,182 @@
+:root {  
+    /* Color Scheme  */
+   --granny-smith-apple: #AAFCB8;
+   --aero-blue: #d7fff1;
+   --darker-apple: #8cd790;
+   --green-sheen: #77af9c;
+   --castleton-green: #285943;
+
+   --orders-font: 'Roboto', sans-serif;
+   --orders-font-size: 22px;
+   --orders-font-size-tablet: 28px;
+   --orders-font-size-computer: 36px;
+
+   --orders-detail-font-size: 18px;
+   --orders-detail-font-size-tablet: 28px;
+   --orders-detail-font-size-computer: 36px;
+} 
+
+
+/* Orders */
+.orderBlock {
+    padding: 10px 10px 10px 10px;
+    border-radius: 10px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    background-color: var(--castleton-green);
+    color: var(--aero-blue)
+}
+
+.orderBlockInfo {
+    padding-left: 1%;
+}
+.orderBlockText {
+    display:block;
+    position: relative;
+}
+.orderBlockText a {
+    color: var(--aero-blue);
+}
+.orderBlockInfo a {
+    float: right;
+    right: 0;
+    height: 40px;
+    width: 40px;
+    background-color: transparent;
+    border: none;
+    padding-bottom: 10px;
+}
+
+/* https://www.w3schools.com/howto/howto_js_collapsible.asp */
+
+.collapsible {
+    background-color: var(--castleton-green);
+    color: white;
+    cursor: pointer;
+    width: 100%;
+    border: none;
+    text-align: center;
+    outline: none;
+    font-size: 15px;
+  }
+
+  .active, .collapsible:hover {
+    background-color: var(--green-sheen);
+  }
+
+  .collapsible:after {
+    content: '\002B';
+    color: white;
+    font-weight: bold;
+    margin-left: 5px;
+  }
+  
+  .active:after {
+    content: "\2212";
+  }
+
+  .content {
+    padding: 0 18px;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.2s ease-out;
+    background-color: var(--aero-blue);
+  }
+
+
+/* Order Details */
+
+.ordersTable {
+    width: 100%;   
+    padding-right: 50px; 
+}
+
+.ordersTable th {
+    font-size: var(--orders-detail-font-size);
+}
+
+.ordersTable td {
+    font-size: var(--orders-detail-font-size);
+}
+
+#changeButtons {
+    margin: 50px auto;
+    width: 250px;
+}
+
+.changeButton {
+    font-family: var(--orders-font-size);
+    font-size: var(--orders-font-size);
+    background-color: var(--darker-apple);
+    padding: 12px 45px;
+    color: var(--castleton-green);
+    text-decoration: none;
+    border: none;
+    border-radius: 15px;
+} 
+
+ .changeButton:hover {
+    background-color: var(--granny-smith-apple);
+} 
+.cancelButton {
+    font-family: var(--orders-font-size);
+    font-size: var(--orders-font-size);
+    background-color: var(--castleton-green);
+    padding: 12px 51px;
+    color: red;
+    text-decoration: none;
+    border: none;
+    border-radius: 15px;
+} 
+
+ .cancelButton:hover {
+    background-color: var(--green-sheen);
+} 
+
+@media screen and (min-width: 768px) {
+    
+    
+    .changeButton {
+        font-size: var(--orders-font-size-tablet);
+    } 
+
+    .cancelButton {
+        font-size: var(--orders-font-size-tablet);
+    } 
+
+    .ordersTable th {
+        font-size: var(--orders-font-size-tablet);
+    }
+    
+    .ordersTable td {
+        font-size: var(--orders-font-size-tablet);
+    }
+
+    
+    #changeButtons {
+        width: 350px;
+    }
+}
+
+
+@media screen and (min-width: 1280px) {
+    .changeButton {
+        font-size: var(--orders-font-size-computer);
+    } 
+
+    .cancelButton {
+        font-size: var(--orders-font-size-computer);
+    } 
+
+    .ordersTable th {
+        font-size: var(--orders-font-size-computer);
+    }
+    
+    .ordersTable td {
+        font-size: var(--orders-font-size-computer);
+    }
+
+    #changeButtons {
+        width: 400px;
+    }
+}

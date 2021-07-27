@@ -1,0 +1,49 @@
+<div class="orderContentBlock">
+    <h2>Order: {{order._id}}</h2> <span id="time"></span>
+    <table id="ordersTable">
+        <tr >
+            <th>Quantity</th>
+            <th>Name</th>
+            <th>Price</th>
+        </tr>
+        {{#each items}}
+        <tr>
+            <td class="quantity"> {{this.quantity}} </td>
+            <td class="name"> {{@key}} </td>
+            <td class="price">{{this.quantity}} &#215; ${{this.price}}</td>
+        </tr>
+        {{/each}}
+        <tr>
+            <td> </td>
+            <td>
+                <h4> Total</h4>
+            </td>
+            <td>
+                <h4>${{order.totalPrice}} </h4>
+            </td>
+        </tr>
+    </table>
+    {{!-- Don't show discount on outstanding page --}}
+    {{#unless outstanding}}
+    <h3>Discount: {{order.discount}}</h3>
+    {{/unless}}
+    <h3>Customer Name: {{order.user.nameGiven}}</h3>
+    {{#if outstanding}}
+    <form method="POST" action="/vendor/orders/{{order._id}}/fulfill?_method=PUT">
+        <input type="hidden" name="discount" id="discount">
+        <input class="vendorOrderBtn" type="submit" name="fulfill" value="Fulfill">
+    </form>
+    {{/if}}
+    {{#if fulfilled}}
+    <form method="POST" action="/vendor/orders/{{order._id}}/completed?_method=PUT">
+        <input class="vendorOrderBtn" type="submit" name="picked up" value="Picked up">
+    </form>
+    {{/if}}
+
+    {{#if pickedUp}}
+    {{/if}}
+
+</div>
+<input type="hidden" id="orderTime" value="{{order.orderTime}}">
+<input type="hidden" id="fulfilledTime" value="{{order.fulfilledTime}}">
+<input type="hidden" id="pickedUpTime" value="{{order.pickedUpTime}}">

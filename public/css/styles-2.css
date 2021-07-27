@@ -1,0 +1,27 @@
+:root {
+    /* Color Scheme */
+    --granny-smith-apple: #AAFCB8;
+    --aero-blue: #d7fff1;
+    --darker-apple: #8cd790;
+    --green-sheen: #77af9c;
+    --castleton-green: #285943;
+}
+
+
+
+/* elements that are on every page */
+
+
+body {
+    font-family: 'Montserrat', sans-serif;
+
+    background-color: var(--aero-blue);
+}
+
+a, u {
+    text-decoration: none;
+}
+
+h1 {
+    color: var(--castleton-green)
+}

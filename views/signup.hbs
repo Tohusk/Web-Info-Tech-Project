@@ -1,0 +1,90 @@
+{{> header context='customer' }}
+<main>
+	<h1 id="loginTitle">Customer Sign up</h1>
+	<div class="signInContainer">
+		<form method="post" action="/customer/user/signup">
+			<input placeholder="first name" name='nameGiven' id='nameGiven' value="" />
+			<input placeholder="last name" name='nameFamily' id='nameFamily' value="" />
+			<input placeholder="email" type="email" id="email" name="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$">
+			{{!<input placeholder="confirm email" name='email' id='email' value="" />}}
+			<input placeholder="password" pattern="(?=.*\d)(?=.*[a-z]).{8,}" type="password" name='password'
+				id='password' value="" />
+			{{!<input placeholder="confirm password" type="password" name='confirm password' id='confirm password'
+				value="" />}}
+
+			<div id="message">
+				<h3 id="passwordHeader">Password must contain the following:</h3>
+				<p id="letter" class="invalid">At least <b>one letter</b></p>
+				<p id="number" class="invalid">At least <b>one number</b></p>
+				<p id="length" class="invalid">Minimum <b>8 characters</b></p>
+			</div>
+
+			<input id="signupButton" class="loginButton" type="submit" value="Signup">
+			{{!-- Van login here in the future --}}
+		</form>
+	</div>
+	<input type="hidden" name="error" id="error" value="{{error}}" />
+	<script>
+		//alert message if there is one
+		if (document.getElementById('error').value.length !== 0) {
+			alert(document.getElementById('error').value);
+		}
+
+	</script>
+
+	<script>
+		var input = document.getElementById("password");
+		var letter = document.getElementById("letter");
+		var number = document.getElementById("number");
+		var length = document.getElementById("length");
+		var button = document.getElementById('signupButton')
+
+		// When the user clicks on the password field, show the message box
+		input.onfocus = function () {
+			document.getElementById("message").style.display = "block";
+			button.style.display = 'none';
+		}
+
+		// When the user clicks outside of the password field, hide the message box
+		input.onblur = function () {
+			document.getElementById("message").style.display = "none";
+			button.style.display = 'block';
+		}
+
+		// When the user starts to type something inside the password field
+		input.onkeyup = function () {
+			if (input.value.length >= 8 && input.value.match(/^(?=.*[0-9])(?=.*[a-zA-Z])([a-zA-Z0-9]+)$/)) {
+				button.style.display = 'block';
+			}
+
+			// Validate lowercase letters
+			var lowerCaseLetters = /[a-z]/i;
+			if (input.value.match(lowerCaseLetters)) {
+				letter.classList.remove("invalid");
+				letter.classList.add("valid");
+			} else {
+				letter.classList.remove("valid");
+				letter.classList.add("invalid");
+			}
+
+			// Validate numbers
+			var numbers = /[0-9]/g;
+			if (input.value.match(numbers)) {
+				number.classList.remove("invalid");
+				number.classList.add("valid");
+			} else {
+				number.classList.remove("valid");
+				number.classList.add("invalid");
+			}
+
+			// Validate length
+			if (input.value.length >= 8) {
+				length.classList.remove("invalid");
+				length.classList.add("valid");
+			} else {
+				length.classList.remove("valid");
+				length.classList.add("invalid");
+			}
+		}
+	</script>
+</main>

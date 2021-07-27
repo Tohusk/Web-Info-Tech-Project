@@ -1,0 +1,100 @@
+{{> header context='customer' }}
+
+<main>
+	<div class = "accountContainer">
+		<h1 class="accountHeader">Account</h1>
+    	<div class="settingsSection">
+			<h2 class="settingsHeader">Account Details</h2>
+        		<div class="accountDetailLine">
+					<div class="accountDetail">First Name:</div>
+					<div class="userDetail">{{user.nameGiven}}</div>
+				</div>
+				<div class="accountDetailLine">
+					<div class="accountDetail">Last Name:</div>
+					<div class="userDetail">{{user.nameFamily}}</div>
+				</div>
+				<div class="accountDetailLine">
+					<div class="accountDetail">Email:</div>
+					<div class="userDetail">{{user.email}}</div>
+				</div>
+		</div>
+		<div class="settingsSection">
+			<h2 class="settingsHeader">Password</h2>
+			<form method="post" action="/customer/user/account">
+		    	<input placeholder="enter old password" type="password" id='pwdOld' name="pwdOld" value=""/>
+        		<input placeholder="enter new password" type="password" id='pwdNew' name="pwdNew" value=""/>
+        		<input placeholder="enter new password again" type="password" id='pwdConfirm' name="pwdConfirm" value=""/>
+				
+				<div id="message">
+					<h3 id="passwordHeader">Password must contain the following:</h3>
+						<p id="letter" class="invalid">At least <b>one letter</b></p>
+						<p id="number" class="invalid">At least <b>one number</b></p>
+						<p id="length" class="invalid">Minimum <b>8 characters</b></p>
+				</div>
+
+				<input class="confirmButton" id="confirmButton" type="submit" value="Confirm"/>
+			</form>
+		</div>
+	</div>
+</main>
+<input type="hidden" name="error" id="error" value="{{error}}" />
+<script>
+	//alert message if there is one
+	if (document.getElementById('error').value.length !== 0) {
+		alert(document.getElementById('error').value);
+	}
+
+	var input = document.getElementById("pwdNew");
+	var letter = document.getElementById("letter");
+	var number = document.getElementById("number");
+	var length = document.getElementById("length");
+	var button = document.getElementById('confirmButton')
+
+	// When the user clicks on the password field, show the message box
+	input.onfocus = function() {
+		document.getElementById("message").style.display = "block";
+		button.style.display='none';
+	}
+	
+	// When the user clicks outside of the password field, hide the message box
+	input.onblur = function() {
+		document.getElementById("message").style.display = "none";
+		button.style.display='block';
+	}
+
+	// When the user starts to type something inside the password field
+	input.onkeyup = function() {
+		if (input.value.length >= 8 && input.value.match(/^(?=.*[0-9])(?=.*[a-zA-Z])([a-zA-Z0-9]+)$/)) {
+			button.style.display='block';
+		}
+
+		// Validate lowercase letters
+		var lowerCaseLetters = /[a-z]/i;
+		if(input.value.match(lowerCaseLetters)) {  
+			letter.classList.remove("invalid");
+			letter.classList.add("valid");
+		} else {
+			letter.classList.remove("valid");
+			letter.classList.add("invalid");
+		}
+
+		// Validate numbers
+		var numbers = /[0-9]/g;
+		if(input.value.match(numbers)) {  
+			number.classList.remove("invalid");
+			number.classList.add("valid");
+		} else {
+			number.classList.remove("valid");
+			number.classList.add("invalid");
+		}
+			
+		// Validate length
+		if(input.value.length >= 8) {
+			length.classList.remove("invalid");
+			length.classList.add("valid");
+		} else {
+			length.classList.remove("valid");
+			length.classList.add("invalid");
+		}
+	}		
+</script>

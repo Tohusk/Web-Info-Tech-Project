@@ -1,0 +1,35 @@
+{{> header context='vendor' order=''}}
+
+{{!-- if fulfilled show time since fulfillment --}}
+{{!-- if outstanding show time since order --}}
+{{!-- if completed show time since picked up --}}
+<main>
+    {{> vendorOrderOverview outstanding='true' }}
+</main>
+<script>
+    function startTime() {
+        var orderTime = new Date(document.getElementById('orderTime').value)
+        var now = new Date();
+        var diff = now - orderTime;
+        var minutes = Math.floor(diff / 6e4);
+        var seconds = Math.floor((diff % 6e4) / 1000);
+        if (minutes > 15) {
+            document.getElementById('discount').value = "true"
+        }
+        else {
+            document.getElementById('discount').value = "false"
+        }
+        minutes = checkTime(minutes);
+        seconds = checkTime(seconds);
+        document.getElementById('time').innerHTML =
+            "Time since order: " + minutes + ":" + seconds;
+        var t = setTimeout(startTime, 1000);
+    }
+    function checkTime(i) {
+        if (i < 10) { i = "0" + i };  // add zero in front of numbers < 10
+        return i;
+    }
+
+    startTime();
+
+</script>

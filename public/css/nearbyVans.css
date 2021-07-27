@@ -1,0 +1,159 @@
+:root {  
+    /* Color Scheme  */
+   --granny-smith-apple: #AAFCB8;
+   --aero-blue: #d7fff1;
+   --darker-apple: #8cd790;
+   --green-sheen: #77af9c;
+   --castleton-green: #285943;
+
+   --nearbyVans-font: 'Roboto', sans-serif;
+   --nearbyVans-font-size: 22px;
+   --nearbyVans-font-size-tablet: 34px;
+   --nearbyVans-font-size-computer: 42px;
+
+   --nearbyVans-title-font-size: 26px;
+   --nearbyVans-title-font-size-tablet: 38px;
+   --nearbyVans-title-font-size-computer: 46px;
+
+} 
+
+/* NearbyVans */
+.nearbyvans {
+    text-align: center;
+    margin-left: -8px;
+    margin-right: -8px;
+    font-family: var(--nearbyVans-font);
+    font-size: var(--nearbyVans-font-size);   
+}
+
+#nearbyVansHeading {
+    font-family: var(--nearbyVans-font);
+    font-size: var(--nearbyVans-title-font-size);   
+    color: var(--castleton-green);
+
+}
+
+.nearbyvans a {
+    color: var(--castleton-green);
+    display: block;
+    padding: 20px;
+    text-decoration: none;
+    border-top-style: solid;
+    border-top-color: var(--castleton-green);
+    border-top-width: 1px; 
+}
+
+.nearbyvans a:hover {
+    background-color: var(--granny-smith-apple);
+}
+
+.nearbyvans .first {
+    padding:5px; 
+    display: block; 
+    float: left;
+}
+
+.nearbyvans .second {
+    padding:5px; 
+    display: block; 
+    float: right;
+}
+
+
+/* vanDetails */
+.vanDetails {
+    margin: 0 auto;
+    width: 360px;
+    text-align: center;
+    color: var(--castleton-green);
+
+}
+
+.vanDetails img {
+    display: block;
+    object-fit: cover;
+    margin-top: 5px;
+    border-radius: 25px;
+    width: 100%;
+    height: 200px   
+}
+
+.vanDetails p {
+    font-family: var(--nearbyVans-font);
+    font-size: var(--nearbyVans-font-size);   
+    margin-top: 5px;
+}
+
+.vanDetailsbutton {
+    background-color: var(--darker-apple);
+    font-size: var(--nearbyVans-font-size);
+    padding: 10px 10px;
+    margin: 10px;
+    color: var(--castleton-green);
+    text-decoration: none;
+    border: none;
+    border-radius: 15px;
+}
+
+
+.vanDetailsbutton:hover {
+    background-color: var(--granny-smith-apple);
+}
+
+
+@media screen and (min-width: 768px) {
+    .nearbyvans {
+        text-align: center;
+        margin-left: -8px;
+        margin-right: -8px;
+        font-family: var(--nearbyVans-font);
+        font-size: var(--nearbyVans-font-size-tablet);   
+    }
+    
+    #nearbyVansHeading {
+        font-family: var(--nearbyVans-font);
+        font-size: var(--nearbyVans-title-font-size-tablet);   
+        color: var(--castleton-green);
+    
+    }
+    
+    .vanDetails img {
+        height: 400px
+    }
+    
+    .vanDetails p {
+        font-size: var(--nearbyVans-font-size-tablet);   
+    }
+    
+    .vanDetailsbutton {
+        font-size: var(--nearbyVans-font-size-tablet);
+    }
+}
+
+@media screen and (min-width: 1280px) {
+    .nearbyvans {
+        text-align: center;
+        margin-left: -8px;
+        margin-right: -8px;
+        font-family: var(--nearbyVans-font);
+        font-size: var(--nearbyVans-font-size-computer);   
+    }
+    
+    #nearbyVansHeading {
+        font-family: var(--nearbyVans-font);
+        font-size: var(--nearbyVans-title-font-size-computer);   
+        color: var(--castleton-green);
+    
+    }
+    .vanDetails img {
+        height: 600px
+    }
+    
+    .vanDetails p {
+        font-size: var(--nearbyVans-font-size-computer);   
+    }
+    
+    .vanDetailsbutton {
+        font-size: var(--nearbyVans-font-size-computer);
+    }
+}

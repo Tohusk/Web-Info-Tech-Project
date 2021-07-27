@@ -1,0 +1,23 @@
+{{> header context='customer' order='true' }}
+<main>
+    <ul class="menuItems">
+        {{#each items}}
+        <a href="/customer/menu/{{this._id}}">
+            <div class="menuFoodBlock">
+                <img src="{{this.image}}">
+                <span class="foodName">{{this.name}}</span>
+                <span class="foodPrice">{{this.price}}</span>
+            </div>
+        </a>
+        {{/each}}
+    
+    </ul>
+</main>
+<input type="hidden" name="error" id="error" value="{{error}}" />
+<script>
+	//alert message if there is one
+	if (document.getElementById('error').value.length !== 0) {
+		alert(document.getElementById('error').value);
+	}
+
+</script>

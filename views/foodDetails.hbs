@@ -1,0 +1,24 @@
+{{> header context='customer' order='true'}}
+<main>
+    <div id="foodDetail">
+        <h2> {{item.name}} </h2>
+        <p hidden>{{item._id}}</p>
+        <img src="{{item.image}}">
+        <h2>Price: ${{item.price}}</h3>
+        <p>{{item.description}}</p>
+        {{!-- addons here in future --}}
+        <div id="addToCartBtnDiv">
+            {{#if loggedin}}
+            <h1 id="foodQuantity"><a class="material-icons large red-text"
+                    href="/customer/user/removeitem/{{item._id}}">remove</a> {{count}} <a class="material-icons"
+                    href="/customer/user/additem/{{item._id}}">add</a> </h1>
+            <button onclick="location.href = '/customer/user/cart';" id="addToCartBtn"> Go to cart - ${{totalPrice count item.price}}
+            </button>
+
+            {{else}}
+            <button onclick="location.href = '/customer/user/login';" id="addToCartBtn"> Login to order </button>
+            {{/if}}
+        </div>
+
+    </div>
+</main>

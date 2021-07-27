@@ -1,0 +1,58 @@
+{{> header context='vendor' }}
+
+<main>
+    {{> vendorOrderList context='Outstanding' }}
+
+
+    <script>
+        function FilterResults() {
+            // Declare variables
+            var input, filter, ol, li, a, i, txtValue;
+            input = document.getElementById('searchBar');
+            filter = input.value.toUpperCase();
+            ol = document.getElementById("ordersList");
+            li = ol.getElementsByTagName('li');
+
+            // Loop through all list items, and hide those who don't match the search query
+            for (i = 0; i < li.length; i++) {
+                a = li[i].getElementsByTagName("a")[0];
+                txtValue = a.textContent || a.innerText;
+                if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                li[i].style.display = "";
+                } else {
+                li[i].style.display = "none";
+                }
+            }
+        }
+
+        function checkTime(i) {
+            if (i < 10) { i = "0" + i };  // add zero in front of numbers < 10
+                return i;
+        }
+
+        function startTime() {
+            var orderTimeElements = document.getElementsByClassName('orderTime') 
+            var orderTimes = new Array(orderTimeElements.length);
+            var i;
+            var now = new Date();
+            for (i=0; i<orderTimeElements.length; i++) {
+                orderTimes[i] = new Date(orderTimeElements[i].value);   
+            }
+            var timeElements = document.getElementsByClassName('time')
+            for (i=0; i<timeElements.length; i++) {
+                var diff = now - orderTimes[i];
+                var minutes = Math.floor(diff / 6e4);
+                var seconds = Math.floor((diff % 6e4) / 1000);
+                minutes = checkTime(minutes);
+                seconds = checkTime(seconds);
+                timeElements[i].innerHTML = minutes + ":" + seconds;  
+            }
+
+            var t = setTimeout(startTime, 1000);
+        }
+
+        startTime();
+          
+    </script>
+</main>
+

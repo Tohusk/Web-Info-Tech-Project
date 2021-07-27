@@ -1,0 +1,68 @@
+:root {  
+    /* --teal: #60bcc4;
+    --navy: #181f4c; */
+
+    /* Color Scheme */
+    --granny-smith-apple: #AAFCB8;
+    --aero-blue: #d7fff1;
+    --darker-apple: #8cd790;
+    --green-sheen: #77af9c;
+    --castleton-green: #285943;
+
+    --header-font: 'Montserrat', sans-serif;
+    --header-font-size: 32px;
+}
+
+/* Nav Bar */
+header { 
+    text-align: center;
+    font-family: var(--header-font);
+
+    position: sticky;
+    background-color: var(--darker-apple);
+    padding-top: 10px;
+    padding-bottom: 10px;
+    margin: -8px -8px 0px -8px;
+
+    border-bottom-style: solid;
+    border-bottom-color: var(--castleton-green);
+    border-bottom-width: 2px; 
+}
+
+header h1 {
+    display: inline;
+    font-size: var(--header-font-size);
+    color: var(--castleton-green);
+}
+
+header a {
+    text-decoration: none;
+    color: var(--castleton-green);
+}
+
+.material-icons.md-48 { 
+    font-size: 36px;
+    position: absolute;
+    top:10px;
+}
+
+.material-icons.md-48.left { 
+    left:10px;
+}
+
+.material-icons.md-48.right { 
+    right:10px;
+}
+
+@media screen and (min-width: 768px) {
+    /* Nav Bar */
+    header {
+        font-size: var(--text-medium);
+        border-bottom-width: 4px; 
+    }
+
+    .material-icons.md-48 { 
+        top: 5px;
+        font-size: 48px;
+    }
+}

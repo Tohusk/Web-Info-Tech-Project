@@ -1,0 +1,109 @@
+:root {  
+     /* Color Scheme  */
+    --granny-smith-apple: #AAFCB8;
+    --aero-blue: #d7fff1;
+    --darker-apple: #8cd790;
+    --green-sheen: #77af9c;
+    --castleton-green: #285943;
+
+    --menu-font: 'Roboto', sans-serif;
+    --menu-font-size: 25px;
+    --menu-font-size-tablet: 30px;
+    --menu-font-size-computer: 32px;
+} 
+
+/* Menu */
+.menuItems {
+    display:flex;
+    font-family: var(--menu-font);
+    flex-direction: column;
+    margin-left: 2px;
+    margin-right: 2px;
+
+    box-sizing: border-box;
+    
+    padding: 0px;
+    flex-wrap: wrap;
+}
+
+.menuFoodBlock {
+    border-radius: 10px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    background-color: var(--granny-smith-apple);
+    border-style: solid;
+    border-color: var(--castleton-green);
+    border-width: 2px;
+}
+
+.menuFoodBlock:hover {
+    background-color: var(--darker-apple);
+}
+
+.menuFoodBlock img {
+    margin-top: 5px;
+    margin-left: 5px;
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border-style: solid;
+    border-color: var(--aero-blue);
+    border-width: 2px;
+}
+
+.menuFoodBlock span {
+    font-size: var(--menu-font-size);
+    text-decoration: none;
+    position: relative;
+    bottom: 45px;
+    color: var(--castleton-green);
+}
+
+.foodName {
+    left: 5px;
+}
+
+.foodPrice {
+    float: right;
+    padding-top: 85px;
+    padding-right: 20px;
+}
+
+
+@media screen and (min-width: 768px) {
+    .menuFoodBlock span {
+        font-size: var(--menu-font-size-tablet);
+    }
+
+    .menuItems {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        column-gap: 10px;
+        row-gap: 0px;
+    }
+
+    .foodPrice {
+        float: right;
+        padding-top: 80px;
+        padding-right: 20px;
+    }
+    
+    #foodDetailImage {
+        width: 500px;
+        height: 500px;
+    }
+}
+
+@media screen and (min-width: 1280px) {
+    .menuFoodBlock span {
+        font-size: var(--menu-font-size-computer);
+    }
+
+    .menuItems {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        column-gap: 10px;
+        row-gap: 0px;
+    }
+
+}

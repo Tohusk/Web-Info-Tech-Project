@@ -1,0 +1,26 @@
+{{> header context='vendor' sidebar='true'}}
+
+
+<main>
+    <div class="sidebar">
+        {{#if loggedin}} 
+        <a href="/vendor/orders/outstanding">Outstanding Orders</a>
+        <a href="/vendor/orders/fulfilled">Fulfilled Orders</a>
+        <a href="/vendor/orders/completed">Completed Orders</a>
+        <a href="/vendor/updateVan">Update Location</a>
+        <a href="/vendor/closeVan">Close Van</a> 
+        {{else}}
+        <a href="/customer">Nearby Vans</a>
+        <a href="/vendor/login">Vendor Login</a>
+        {{/if}}
+    </div>
+</main>
+<input type="hidden" name="error" id="error" value="{{error}}" />
+<script>
+    console.log(document.getElementById('error').value)
+	//alert message if there is one
+	if (document.getElementById('error').value.length !== 0) {
+		alert(document.getElementById('error').value);
+	}
+
+</script>

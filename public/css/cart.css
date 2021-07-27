@@ -1,0 +1,118 @@
+:root {  
+    /* Color Scheme  */
+   --granny-smith-apple: #AAFCB8;
+   --aero-blue: #d7fff1;
+   --darker-apple: #8cd790;
+   --green-sheen: #77af9c;
+   --castleton-green: #285943;
+
+   --cart-font: 'Roboto', sans-serif;
+   --cart-header-font: 'Montserrat', sans-serif;
+   --cart-h1-font-size: 28px;
+   --cart-h1-font-size-tablet: 34px;
+   --cart-h1-font-size-computer: 42px;
+
+   --cart-h2-font-size: 24px;
+   --cart-h2-font-size-tablet: 30px;
+
+   --cart-h3-font-size: 20px;
+   --cart-h3-font-size-tablet: 26px;
+
+   --cart-button-font-size: 28px;
+   --cart-button-font-size-tablet: 40px;
+} 
+
+/* Cart */
+#cartHeader {
+    font-family: var(--cart-header-font);
+    color: var(--castleton-green);
+
+}
+
+#cartHeader h1 {
+    font-size: var(--cart-h1-font-size);
+    margin-bottom: -10px;
+
+}
+
+#cartHeader h2 {
+    font-size: var(--cart-h2-font-size);
+    margin-bottom: -10px;
+
+}
+
+#cartHeader h3 {
+    font-size: var(--cart-h3-font-size);
+}
+
+.cartBlock {
+    font-family: var(--cart-font);
+    color: var(--aero-blue);
+    height: 50vh;
+    border-radius: 10px;
+    margin-top: 0px;
+    margin-bottom: 50px;
+    background-color: var(--castleton-green);
+}
+
+#cartTable {
+    width: 100%    
+}
+
+#cartTable a {
+    color: var(--aero-blue); 
+}
+
+#cart td {
+    text-align: center;
+    
+}
+
+.cartButton {
+    font-family: var(--cart-font);
+    font-size: var(--cart-button-font-size);
+    background-color: var(--darker-apple);
+    padding: 12px 45px;
+    color: var(--castleton-green);
+    text-decoration: none;
+    border: solid;
+    border-width: 2px;
+    border-color: var(--castleton-green);
+    border-radius: 15px;
+} 
+
+.cartButton:hover {
+    background-color: var(--granny-smith-apple);
+} 
+
+@media screen and (min-width: 768px) {
+    #cartHeader h1 {
+        font-size: var(--cart-h1-font-size-tablet);
+        margin-bottom: -10px;
+    
+    }
+    
+    #cartHeader h2 {
+        font-size: var(--cart-h2-font-size-tablet);
+        margin-bottom: -10px;
+    
+    }
+    
+    #cartHeader h3 {
+        font-size: var(--cart-h3-font-size-tablet);
+    }
+
+    
+    #cartTable th {
+        font-size: var(--cart-h2-font-size-tablet);
+    }
+
+    #cartTable td {
+        font-size: var(--cart-h2-font-size-tablet);
+    }
+
+
+    .cartButton {
+        font-size: var(--cart-button-font-size-tablet);
+    } 
+}

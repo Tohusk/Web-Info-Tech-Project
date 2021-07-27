@@ -1,0 +1,11 @@
+<header>
+    <span>
+        {{#unless sidebar}}
+        <a class="material-icons md-48 left" href="/{{context}}/sidebar">menu</a>
+        {{/unless}}
+        <h1>Snacks in a Van</h1>
+        {{#if order}}
+        <a class="material-icons md-48 right" href="/customer/user/cart">shopping_cart</a>
+        {{/if}}
+    </span>
+</header>

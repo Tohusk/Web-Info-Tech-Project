@@ -1,0 +1,143 @@
+:root {  
+    /* Color Scheme  */
+   --granny-smith-apple: #AAFCB8;
+   --aero-blue: #d7fff1;
+   --darker-apple: #8cd790;
+   --green-sheen: #77af9c;
+   --castleton-green: #285943;
+
+   --food-detail-font: 'Roboto', sans-serif;
+   --food-detail-title-font-size: 32px;
+   --food-detail-title-font-size-tablet: 38px;
+   --food-detail-title-font-size-computer: 42px;
+
+   --food-detail-button-font-size: 28px;
+   --food-detail-button-font-size-tablet: 34px;
+   --food-detail-button-font-size-computer: 38px;
+
+   --food-detail-description-font-size: 25px;
+   --food-detail-description-font-size-tablet: 28px;
+   --food-detail-description-font-size-computer: 34px;
+} 
+
+/* Food Details */
+#foodDetail h2 {
+    font-family: var(--food-detail-font);
+    color: var(--castleton-green);
+    font-size: var(--food-detail-title-font-size);
+    margin-left: 8px;
+    margin-top: 16px;
+}
+
+#foodDetail img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 20px;
+    margin-top: -16px;
+    width: 300px;
+    height: 300px;
+    object-fit: cover;
+
+    border-radius: 30px;
+    border-style: solid;
+    border-color: var(--green-sheen);
+    border-width: 2px;
+}
+
+#foodDetail p {
+    padding: 10px;
+    margin-left: 4px;
+    margin-right: 4px;
+    margin-top: 16px;
+    margin-bottom: 16px;
+    font-family: var(--food-detail-font);
+    font-size: var(--food-detail-description-font-size);
+    background-color: var(--castleton-green);
+    color: var(--aero-blue);
+}
+
+#foodQuantity {
+    color: var(--castleton-green);
+    font-size: var(--food-detail-title-font-size);
+}
+
+#foodQuantity a {
+    position: relative;
+    bottom: -2px;
+    color: var(--castleton-green);
+    font-size: var(--food-detail-title-font-size);
+}
+
+#addToCartBtnDiv {
+    text-align: center;
+}
+
+#addToCartBtn {
+    font-family: var(--food-detail-font);
+    font-size: var(--food-detail-button-font-size);
+    background-color: var(--darker-apple);
+    padding: 10px 30px;
+    color: var(--castleton-green);
+    text-decoration: none;
+    border: solid;
+    border-color: var(--castleton-green);
+    border-width: 2px;
+    border-radius: 15px;
+}
+
+#addToCartBtn:hover {
+    background-color: gray;
+}
+
+@media screen and (min-width: 768px) {    
+
+    #foodDetail h2 {
+        font-size: var(--food-detail-title-font-size-tablet);
+    }
+    
+    #foodDetail img {
+        width: 500px;
+        height: 500px;
+    }
+
+    #foodDetail p {
+        font-size: var(--food-detail-description-font-size-tablet);
+    }
+
+    #addToCartBtn {
+        font-size: var(--food-detail-button-font-size-tablet);
+    }
+
+    #foodQuantity {
+        font-size: var(--food-detail-title-font-size-tablet);
+    }
+    
+    #foodQuantity a {
+        bottom: -3px;
+        font-size: var(--food-detail-title-font-size-tablet);
+    }
+}
+
+@media screen and (min-width: 1280px) {
+    #foodDetail h2 {
+        font-size: var(--food-detail-title-font-size-computer);
+    }
+
+    #foodDetail p {
+        font-size: var(--food-detail-description-font-size-computer);
+    }
+
+    #addToCartBtn {
+        font-size: var(--food-detail-button-font-size-computer);
+    }
+
+    #foodQuantity {
+        font-size: var(--food-detail-title-font-size-computer);
+    }
+    
+    #foodQuantity a {
+        font-size: var(--food-detail-title-font-size-computer);
+        bottom: -5px;
+    }
+}

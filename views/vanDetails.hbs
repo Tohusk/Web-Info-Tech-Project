@@ -1,0 +1,16 @@
+{{> header context='customer' }}
+<main>
+    
+    <div class="vanDetails">
+        <img src="{{van.image}}" alt="van image">
+        <div>
+            <p>{{van.name}} </p>
+            <p>{{van.distance}}km - {{van.address}}</p>
+            <form method="post" action="/customer/van/assignVan">
+                <input type="hidden" id="vanName" name="vanName" value="{{van.name}}">
+                <input class="vanDetailsbutton" type="submit" value="Order Here">
+            </form>
+        </div>
+
+    </div>
+</main>

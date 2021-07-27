@@ -1,0 +1,47 @@
+{{> header context='customer' }}
+
+<div id="cartHeader">
+    <h1>Cart</h1>
+    <h2>{{van.name}}</h2>
+    <h3>{{van.currentLocation}} ({{van.latitude}},{{van.longitude}})</h3>
+</div>
+
+<div style="text-align: center;">
+    <div class="cartBlock">
+        <table id="cartTable">
+            <tr>
+                <th>Quantity</th>
+                <th>Name</th>
+                <th>Price</th>
+                <th>Remove</th>
+            </tr>
+            {{#each items}}
+            <tr>
+                <td class="quantity"> {{this.quantity}} </td>
+                <td class="name"> {{@key}} </td>
+                <td class="price">{{this.quantity}} &#215; ${{this.price}}</td>
+                <td><a class="material-icons" href="/customer/user/removeitem/{{this._id}}">remove</a></td>
+            </tr>
+            {{/each}}
+            <tr>
+                <td> </td>
+                <td>
+                    <h4> Total</h4>
+                </td>
+                <td>
+                    <h4>${{total}} </h4>
+                </td>
+                <td> </td>
+            </tr>
+        </table>
+    </div>
+    <a class="cartButton" href="/customer/order">Confirm Order</a>
+</div>
+<input type="hidden" name="error" id="error" value="{{error}}" />
+<script>
+    //alert message if there is one
+    if (document.getElementById('error').value.length !== 0) {
+        alert(document.getElementById('error').value);
+    }
+
+</script>

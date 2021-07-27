@@ -1,0 +1,17 @@
+{{> header context='customer' sidebar='true' }}
+
+
+{{!-- If logged in display my account instead of log in --}}
+<main>
+    <div class="sidebar">
+        <a href="/customer">Nearby Vans</a>
+        <a href="/customer/menu">Menu</a>
+        {{#if loggedin}} 
+        <a href="/customer/orders">My Orders</a>
+        <a href="/customer/user/account">Account Details</a>
+        <a href="/customer/user/logout">Logout</a> 
+        {{else}}
+        <a href="/customer/user/login">Log In</a> 
+        {{/if}}        
+    </div>
+</main>

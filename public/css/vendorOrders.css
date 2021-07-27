@@ -1,0 +1,114 @@
+:root {  
+    /* Color Scheme */
+    --granny-smith-apple: #AAFCB8;
+    --aero-blue: #d7fff1;
+    --darker-apple: #8cd790;
+    --green-sheen: #77af9c;
+    --castleton-green: #285943;
+
+    --vendorOrder-font: 'Roboto', sans-serif;
+    --vendorOrder-font-size: 32px;
+}
+/* Vendor Order */
+
+#ordersList {
+    list-style-type: none;
+}
+
+#vendorOrdersHeading {
+    font-family: var(--vendorOrder-font);
+    font-size:  var(--vendorOrder-font-size);
+    color: var(--castleton-green);
+}
+
+#ordersList li {
+    padding-top: 30px;
+    padding-bottom: 30px;
+    margin-left: -30px;
+    margin-right: 10px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    background-color: var(--darker-apple);
+}
+
+#ordersList li a {
+    margin-left: 20px;
+    font-size: var(--vendorOrder-font-size);
+    font-family: var(--vendorOrder-font);
+    text-decoration: none;
+    color:var(--castleton-green);
+}
+
+#ordersList li span {
+    font-size: var(--vendorOrder-font-size);
+    font-family: var(--vendorOrder-font);
+    color:var(--castleton-green);
+    float: right;
+    margin-top: 0px;
+    margin-right: 20px;
+}
+
+#searchBar {
+    font-size: var(--text-small); /* Increase font-size */
+    padding: 10px 10px 10px 10px;
+    display: block;
+    width: 98%;
+    margin-right: auto;
+    margin-left: auto;
+ /* Add some padding */
+}
+
+
+
+/* Vendor Order Details */
+.orderContentBlock {
+    text-align: center;
+    height: 50vh;
+    border-radius: 10px;
+    margin-top: 0px;
+    margin-bottom: 50px;
+    background-color: var(--darker-apple);
+    font-family: var(--vendorOrder-font);
+    font-size: var(--vendorOrder-font-size);
+    color: var(--castleton-green);
+}
+
+.orderContentBlock table {
+    margin-left:auto;
+    margin-right:auto;
+    width: 100%;  
+    padding-right: 50px; 
+}
+
+.orderContentBlock span {
+    font-family: var(--vendorOrder-font);
+    font-size: var(--vendorOrder-font-size);
+}
+
+#ordersTable {
+    width: 100%;   
+    padding-right: 50px; 
+}
+
+#ordersTable th {
+    font-size: var(--vendorOrder-font-size);
+}
+
+#ordersTable td {
+    font-size: var(--vendorOrder-font-size);
+}
+
+.vendorOrderBtn {
+    font-size: var(--login-button-font-size);
+    background-color: var(--darker-apple);
+    margin-top: 10px;
+    padding: 12px 45px;
+    color: var(--castleton-green);
+    text-decoration: none;
+    border: none;
+    border-radius: 15px;
+}
+
+.vendorOrderBtn:hover {
+    background-color: var(--granny-smith-apple);
+}

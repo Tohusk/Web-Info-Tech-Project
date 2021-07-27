@@ -1,0 +1,14 @@
+<h2 id="vendorOrdersHeading">{{context}} Orders</h2>
+    {{!-- Search bar to search by order number --}}
+    <input type="text" id="searchBar" onkeyup="FilterResults()" placeholder="Search by customer name">
+    <ol id="ordersList">
+        {{#each orders}}
+        <li>
+            <a href="/vendor/orders/{{this._id}}"> {{this.user.nameGiven}} {{this.user.nameFamily}}</a>
+            <span class="time"> </span>
+        </li>
+        <input type="hidden" name="orderTime" class="orderTime" value="{{this.orderTime}}" />
+        <input type="hidden" name="fulfilledTime" class="fulfilledTime" value="{{this.fulfilledTime}}" />
+        <input type="hidden" name="pickedUpTime" class="pickedUpTime" value="{{this.pickedUpTime}}" />
+        {{/each}}
+    </ol>

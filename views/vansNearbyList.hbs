@@ -1,0 +1,52 @@
+{{> header context='customer' }}
+<main>
+    <h2 id="nearbyVansHeading">Nearby Vans </h2>
+    {{#each van}}
+    <div class="nearbyvans">
+        <a href="/customer/van/{{this.id}}">
+            <table style="width: 100%;">
+                <tr>
+                    <td class="first"><b>{{@key}}</b></td>
+                    <td class="second">{{this.distance}}km</td>
+                </tr>
+                <tr>
+                    <td class="first">{{this.address}} </td>
+                    <td class="second"> </td>
+                </tr>
+            </table>
+        </a>
+    </div>
+    {{/each}}
+    <input type="hidden" name="error" id="error" value="{{error}}" />
+    <input type="hidden" name="location" id="location" value="{{location}}" />
+    <form action="/customer/location" method="POST" name="frm1">
+        <input type="hidden" name="longitude" id="getlon" />
+        <input type="hidden" name="latitude" id="getlat" />
+    </form>
+
+    <script>
+        if (document.getElementById('error').value.length !== 0) {
+            alert(document.getElementById('error').value);
+        }
+        function getLocation() {
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(showPosition);
+            } else {
+                alert("No geolocation supported on this browser")
+            }
+        }
+
+        function showPosition(position) {
+            document.getElementById('getlat').value = position.coords.latitude;
+            document.getElementById('getlon').value = position.coords.longitude;
+            lon = document.getElementById('getlon').value;
+            lat = document.getElementById('getlat').value;
+            document.frm1.submit();
+        }
+
+        if (document.getElementById('location').value === "false") {
+            getLocation()
+        }
+
+    </script>
+</main>
